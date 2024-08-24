@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
+import ListaProdutos from "./Components/Adaptadores/ListaProdutos";
 
 const produtos = [
   { id: 1, nome: "Holow Knight", preco: 30.00 },
@@ -16,13 +17,9 @@ export default function Index() {
     <View
       style={estilo.container}
     >
-      {produtos.map((p) => (
-        <View key={p.id}>
-          <Text style={estilo.titulo}>{p.nome}</Text>
-          <Text style={estilo.text}>R${p.preco.toFixed(2)}</Text>
-        </View>
-      ))
-      }
+      <ListaProdutos produtos={produtos}>
+
+      </ListaProdutos>
       <Button title={`Clicado ${contador}`} onPress={clicarBotao}>
       </Button>
     </View>
