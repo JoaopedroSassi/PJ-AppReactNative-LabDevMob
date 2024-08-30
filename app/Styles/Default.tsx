@@ -1,15 +1,15 @@
 import { StyleSheet } from "react-native";
-
-const Styles = StyleSheet.create({
+ 
+const Style = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
+      justifyContent: 'space-between',
       alignItems: 'center',
-      backgroundColor: '#f5f5f5',
+      backgroundColor: '#E5E4E2',
     },
     card: {
       width: 300,
-      height: 100,
+      height: 200,
       backgroundColor: '#fff',
       borderRadius: 10,
       elevation: 5, // Para Android
@@ -20,12 +20,13 @@ const Styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       padding: 20,
-      marginVertical: 5
+      marginVertical: 10
     },
     cardText: {
       fontSize: 18,
       color: '#333',
-    },
-});
-
-export default Styles;
+      fontWeight:"bold"
+    }
+  });
+ 
+  export default Style

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
 import ListaProdutos from "./Components/Adaptadores/ListaProdutos";
+import Style from "./Styles/Default"
 
 const produtos = [
   { id: 1, nome: "Holow Knight", preco: 30.00 },
@@ -15,7 +16,7 @@ export default function Index() {
 
   return (
     <View
-      style={estilo.container}
+      style={Style.container}
     >
       <ListaProdutos produtos={produtos}>
 
@@ -29,23 +30,3 @@ export default function Index() {
     setContador(contador + 1);
   }
 }
-
-const estilo = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "flex-start",
-    backgroundColor: "white",
-    paddingStart: 40
-  },
-  text: {
-    color: "black",
-    fontSize: 20
-  },
-  titulo: {
-    color: "black",
-    fontSize: 30,
-    textAlign: "left",
-    fontWeight: "bold",
-  }
-});
