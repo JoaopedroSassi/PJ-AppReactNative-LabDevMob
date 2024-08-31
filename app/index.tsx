@@ -1,28 +1,34 @@
-import { useState } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { useState, useEffect } from "react";
+import { View, Button } from "react-native";
 import ListaProdutos from "./Components/Adaptadores/ListaProdutos";
 import Style from "./Styles/Default"
-
-const produtos = [
-  { id: 1, nome: "Holow Knight", preco: 30.00 },
-  { id: 2, nome: "Final Fantasy XVI", preco: 250.00 },
-  { id: 3, nome: "Kingdom Hearts II", preco: 150.60 },
-  { id: 4, nome: "Half-Life: Alyx", preco: 50.00 }
-];
+import axios from 'axios'
 
 export default function Index() {
 
   let [contador, setContador] = useState(0);
+  let [produtos, setProdutos] = useState([]);
+
+  useEffect(() => {
+    carregarProdutos();
+  }, []);
+
+  function carregarProdutos() {
+    axios
+      .get('https://api-docker-2t8m.onrender.com/api/produtos')
+      .then((res) => {
+        setProdutos(res.data);
+      })
+  }
 
   return (
-    <View
-      style={Style.container}
-    >
+    <View style={Style.container}>
       <ListaProdutos produtos={produtos}>
 
       </ListaProdutos>
       <Button title={`Clicado ${contador}`} onPress={clicarBotao}>
       </Button>
+      <CadastroProduto />
     </View>
   );
 
