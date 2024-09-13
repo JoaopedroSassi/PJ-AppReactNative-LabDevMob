@@ -3,6 +3,7 @@ import { View, Button } from "react-native";
 import ListaProdutos from "./Components/Adaptadores/ListaProdutos";
 import Style from "./Styles/Default"
 import axios from 'axios'
+import CadastroProduto from "./Components/Adaptadores/CadastroProduto";
 
 export default function Index() {
 
