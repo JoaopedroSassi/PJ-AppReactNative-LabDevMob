@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import { View, Button } from "react-native";
 import ListaProdutos from "./Components/Adaptadores/ListaProdutos";
-import Style from "./Styles/Default"
-import axios from 'axios'
-import CadastroProduto from "./Components/Adaptadores/CadastroProduto/CadastroProduto";
+import Style from "./Styles/Default";
+import axios from 'axios';
+import { useRouter, useFocusEffect } from "expo-router";
 
 export default function Index() {
+  const router = useRouter();
 
-  let [contador, setContador] = useState(0);
+  useFocusEffect(() => {
+    carregarProdutos();
+  });
+
   let [produtos, setProdutos] = useState([]);
 
   useEffect(() => {
@@ -24,16 +28,15 @@ export default function Index() {
 
   return (
     <View style={Style.container}>
-      <ListaProdutos produtos={produtos}>
+      <ListaProdutos produtos={produtos} aoAtualizar={carregarProdutos}>
 
       </ListaProdutos>
-      <Button title={`Clicado ${contador}`} onPress={clicarBotao}>
+      <Button title={`Cadastrar`} onPress={telaCadastro}>
       </Button>
-      <CadastroProduto />
     </View>
   );
 
-  function clicarBotao() {
-    setContador(contador + 1);
+  function telaCadastro() {
+    router.push('/Telas/cadastro');
   }
 }
